@@ -13,4 +13,5 @@ class Biblioteca:
     def buscar(self, termo):
         termo = termo.strip().casefold()
         return [livro.copy() for livro in self.livros
-                if termo in livro["titulo"].casefold()]
+                if termo in livro["titulo"].casefold()
+                or termo in livro["autor"].casefold()]

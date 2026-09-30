@@ -21,3 +21,10 @@ class TestBiblioteca(unittest.TestCase):
 
     def test_sem_resultado(self):
         self.assertEqual(self.b.buscar("inexistente"), [])
+
+    def test_busca_autor(self):
+        self.assertEqual(len(self.b.buscar(" MACHADO ")), 1)
+
+    def test_busca_nao_duplica_resultado(self):
+        self.b.cadastrar("Machado", "Machado")
+        self.assertEqual(len(self.b.buscar("machado")), 2)
