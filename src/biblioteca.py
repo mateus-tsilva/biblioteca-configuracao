@@ -3,6 +3,9 @@ class Biblioteca:
         self.livros = []
 
     def cadastrar(self, titulo, autor):
+        titulo, autor = titulo.strip(), autor.strip()
+        if not titulo or not autor:
+            raise ValueError("Título e autor são obrigatórios.")
         livro = {"id": len(self.livros) + 1, "titulo": titulo, "autor": autor}
         self.livros.append(livro)
         return livro.copy()
